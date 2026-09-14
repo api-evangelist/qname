@@ -1,0 +1,23 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  Provider-published Agent Skill, saved verbatim from the @qname/cli npm package
+  (skills/qname-cli/SKILL.md, v0.1.4) and the QNameAI/qname-cli GitHub repo.
+skills:
+  - name: qname-cli
+    file: qname-cli.md
+    description: >-
+      Use QName.AI domain lookup from the terminal — WHOIS/domain availability and
+      traffic evidence through the approved QName API, staying within the key's
+      approved API types and quotas.
+    api: QName AI WHOIS REST API
+    install: npx skills add QNameAI/qname-cli -y -g
+    operations:
+      - GET /api/whois/{domain}
+      - POST /api/whois/batch
+      - GET /api/domain-traffic
+    homepage: https://qname.ai
+    published: true
+    note: >-
+      First-party skill authored and shipped by QName AI. Bundled inside the
+      @qname/cli npm package and installable via the skills registry.

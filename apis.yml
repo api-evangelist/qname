@@ -4,11 +4,23 @@ description: >-
   small, approval-gated REST API and an agent-native CLI (@qname/cli). It offers authenticated single-domain and batch
   WHOIS/domain lookups plus a domain-traffic scope, consumable via the CLI, an installable Agent Skill, or direct REST
   calls.
-url: https://raw.githubusercontent.com/api-evangelist/qname-ai-whois-api/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/qname/refs/heads/main/apis.yml
 created: '2026-09-13'
-modified: '2026-09-13'
+modified: '2026-09-14'
 specificationVersion: '0.21'
 tags:
+  - WHOIS
+  - rdap
+  - domain-research
+  - Domain Search
+  - batch-lookup
+  - CLI
+  - Agent Tooling
+  - AgentSkill
+  - llms-txt
+  - Developer Tools
+  - Domain Intelligence
+tags_raw:
   - whois
   - rdap
   - domain-research
@@ -29,6 +41,18 @@ apis:
     humanURL: https://qname.ai/cli
     baseURL: https://qname.ai
     tags:
+      - WHOIS
+      - rdap
+      - domain-research
+      - Domain Search
+      - batch-lookup
+      - CLI
+      - Agent Tooling
+      - AgentSkill
+      - llms-txt
+      - Developer Tools
+      - Domain Intelligence
+    tags_raw:
       - whois
       - rdap
       - domain-research
@@ -51,9 +75,64 @@ apis:
         url: https://github.com/QNameAI/qname-cli
 maintainers:
   - FN: QName AI
+    email: hello@qname.ai
     url: https://qname.ai
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 88
   at: '2026-09-13T14:20:00.634Z'
+common:
+- type: Website
+  url: https://qname.ai
+- type: DomainSecurity
+  url: security/qname-domain-security.yml
+- type: DeveloperPortal
+  url: https://qname.ai/cli
+- type: GitHubOrganization
+  url: https://github.com/QNameAI
+- type: Roadmap
+  url: https://qname.ai/roadmap
+- type: TermsOfService
+  url: https://qname.ai/terms
+- type: PrivacyPolicy
+  url: https://qname.ai/privacy
+- type: Support
+  url: https://qname.ai/contact
+- type: Login
+  url: https://qname.ai/auth/login
+- type: LLMsTxt
+  url: llms/qname-llms.txt
+- type: AgentSkill
+  url: skills/qname-cli.md
+- type: Packages
+  url: packages/qname-packages.yml
+- type: CLI
+  url: cli/qname-cli.yml
+- type: Authentication
+  url: authentication/qname-authentication.yml
+- type: Conventions
+  url: conventions/qname-conventions.yml
+- type: ErrorCatalog
+  url: errors/qname-problem-types.yml
+- type: DataModel
+  url: data-model/qname-data-model.yml
+- type: MCPServer
+  url: mcp/qname-mcp.yml
+- type: ChangeLog
+  url: changelog/qname-changelog.yml
+- type: ChangeLog
+  url: https://qname.ai/changelog
+- type: Plans
+  url: plans/qname-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/qname-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/qname-lifecycle.yml
+- type: Conformance
+  url: conformance/qname-conformance.yml
+x-enrichment:
+  date: '2026-09-14'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v3

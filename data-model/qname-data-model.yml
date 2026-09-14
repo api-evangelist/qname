@@ -1,0 +1,41 @@
+generated: '2026-09-14'
+method: derived
+source: >-
+  Derived from response fields read/parsed by the official @qname/cli source
+  (bin/qname-cli.mjs) and the llms.txt WHOIS field description. No OpenAPI
+  components exist; entities are read from the first-party client's response handling.
+api: QName AI WHOIS REST API
+note: >-
+  QName does not publish an object/schema reference, so field lists below are the
+  subset the official CLI reads. Registrar/registry WHOIS and RDAP fields vary by
+  extension, registrar, and privacy policy; missing fields are unknown, not empty.
+entities:
+  - name: WhoisResult
+    operation: GET /api/whois/{domain}
+    envelope: '{ result, data, code }'
+    fields:
+      - result (boolean-ish presence flag)
+      - data (registrar, registration/creation dates, nameservers, status codes,
+        raw WHOIS and/or RDAP evidence — exact shape varies by extension/registry)
+      - code (SUCCESS | DOMAIN_NOT_REGISTERED | DOMAIN_RESERVED)
+  - name: BatchWhoisResult
+    operation: POST /api/whois/batch
+    request: '{ domains: [<domain>, ...] }'
+    envelope: '{ results: [ BatchItem ] }'
+  - name: BatchItem
+    fields:
+      - domain
+      - code (SUCCESS | DOMAIN_NOT_REGISTERED | DOMAIN_RESERVED)
+      - result
+  - name: DomainTraffic
+    operation: GET /api/domain-traffic?domain={domain}
+    fields:
+      - engagements.visits (number)
+      - globalRank.rank (number)
+      - countryRank.countryCode (string)
+      - countryRank.rank (number)
+relationships:
+  - from: BatchWhoisResult
+    to: BatchItem
+    kind: has_many
+    via: results[]

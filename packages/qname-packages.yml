@@ -1,0 +1,31 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  npm registry (registry.npmjs.org/@qname/cli) and the QNameAI/qname-cli GitHub repo.
+packages:
+  - name: '@qname/cli'
+    registry: npm
+    url: https://www.npmjs.com/package/@qname/cli
+    repository: https://github.com/QNameAI/qname-cli
+    language: javascript
+    kind: cli
+    official: true
+    license: MIT
+    version: 0.1.4
+    published: '2026-06-03'
+    first_published: '2026-05-23'
+    description: >-
+      Agent-native CLI for QName.AI WHOIS and traffic lookup APIs. The recommended
+      client for QName API keys; exposes whois (single + batch) and traffic commands.
+    dependencies: none
+    maintainer: qname-ai (hello@qname.ai)
+    note: >-
+      This is a CLI binary, not an importable SDK library. Zero runtime dependencies.
+      Latest release 0.1.4 (2026-06-03) postdates the v2.0.0 product release
+      (2026-05-20), so the client is current with the API it wraps. No other
+      first-party SDKs (Python, Go, etc.) were found on PyPI, RubyGems, crates.io,
+      pkg.go.dev, Maven Central, NuGet, or Packagist.
+notes: >-
+  No first-party SDK client library published on any registry — the only first-party
+  package is the CLI above. No SDKs pointer emitted because there is no importable
+  client library, only a command-line binary.

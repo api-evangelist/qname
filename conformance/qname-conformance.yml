@@ -1,0 +1,35 @@
+generated: '2026-09-14'
+method: derived
+source: >-
+  Derived from the @qname/cli source, llms.txt, and https://qname.ai/cli. No
+  published OpenAPI/spec to inspect; conformance is judged against the observable
+  HTTP surface and product description.
+api: QName AI WHOIS REST API
+note: >-
+  QName surfaces WHOIS and RDAP *evidence* as data, but its own HTTP interface is a
+  proprietary REST wrapper — it is not itself a standards-conformant endpoint. These
+  honest entries record what the contract does and does not declare (reward-only;
+  no penalty for a market whose standard is not implemented at the interface).
+conformance:
+  - id: rdap
+    conforms: false
+    evidence: https://qname.ai/cli
+    note: >-
+      Returns RDAP-derived registration evidence inside a proprietary JSON envelope
+      (/api/whois/{domain}); does not expose an RFC 9082/9083-conformant RDAP query
+      surface or the standard RDAP media type.
+  - id: rfc9457
+    conforms: false
+    evidence: https://github.com/QNameAI/qname-cli
+    note: Errors use a proprietary { code, error } envelope, not application/problem+json.
+  - id: oauth2
+    conforms: false
+    evidence: https://qname.ai/cli
+    note: Authentication is a static x-api-key header; no OAuth2/OIDC flow.
+domain_standard:
+  standard: RDAP (RFC 9083)
+  declared_in_contract: false
+  note: >-
+    RDAP is the domain-registration data standard for this market, but QName does
+    not declare or expose an RDAP-conformant contract — it consumes RDAP upstream
+    and re-serves the data in its own shape.

@@ -1,0 +1,24 @@
+generated: '2026-09-14'
+method: searched
+source: https://qname.ai/changelog
+api: QName AI WHOIS REST API
+scheme: semver
+current_version: 2.0.0
+docs: https://qname.ai/changelog
+note: >-
+  Product-level changelog (not API-endpoint-specific). Only two dated entries are
+  published; no CLI/API/MCP-specific changelog is maintained. The @qname/cli client
+  is versioned separately on npm (latest 0.1.4, 2026-06-03).
+entries:
+  - version: 2.0.0
+    date: '2026-05-20'
+    highlights: >-
+      Focused update for bulk WHOIS checks, AI domain recommendations, domain
+      profiles, and registrar handoff.
+    breaking: unknown
+  - version: 1.0.0
+    date: '2026-05-18'
+    highlights: >-
+      First public release: AI domain search, WHOIS lookup, domain age checks, and
+      launch-day naming research.
+    breaking: false

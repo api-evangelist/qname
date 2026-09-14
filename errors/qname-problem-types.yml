@@ -1,0 +1,50 @@
+generated: '2026-09-14'
+method: derived
+source: >-
+  Derived from the official @qname/cli source (bin/qname-cli.mjs) error handling and
+  observed live HTTP responses from https://qname.ai/api/*. No OpenAPI 4xx/5xx
+  schema exists; codes are read from the first-party client and probes.
+api: QName AI WHOIS REST API
+format: proprietary
+envelope_field: code
+error_field: error
+note: >-
+  Responses are JSON with a machine-readable `code` and, on failure, an `error`
+  string. Not RFC 9457 (no application/problem+json). Domain-state codes are
+  returned alongside a 200 (registered/reserved) or a 404 (not registered) rather
+  than as errors.
+problem_types:
+  - code: SUCCESS
+    http: 200
+    meaning: WHOIS lookup succeeded; domain is registered. Body carries result + data.
+  - code: DOMAIN_NOT_REGISTERED
+    http: 404
+    meaning: >-
+      Domain is not registered (available). The CLI treats this 404 as a normal
+      result, not an error.
+  - code: DOMAIN_RESERVED
+    http: 200
+    meaning: Domain is reserved by the registry.
+  - code: API_ERROR
+    http: '5xx / other'
+    meaning: >-
+      Generic upstream/API error; the client surfaces the server's error string.
+  - code: TURNSTILE_REQUIRED
+    http: 403
+    meaning: >-
+      Cloudflare Turnstile security verification required — returned to
+      unauthenticated/bot requests hitting the API host directly. Observed live.
+  - code: UNAUTHORIZED
+    http: 401
+    meaning: >-
+      Missing or invalid API key. The CLI exits with code 3 on 401.
+client_error_codes:
+  note: >-
+    The CLI additionally emits local (non-HTTP) codes for input/config problems,
+    not returned by the API.
+  codes:
+    - MISSING_API_KEY
+    - INVALID_DOMAIN
+    - CONFIG_READ_FAILED
+    - MISSING_REQUIRED_VALUE
+    - UNKNOWN_COMMAND

@@ -1,0 +1,62 @@
+generated: '2026-09-14'
+method: derived
+source: >-
+  Derived from the official @qname/cli source (bin/qname-cli.mjs) and README, plus
+  https://qname.ai/cli. No OpenAPI exists; conventions are read from the first-party
+  client's actual HTTP behavior.
+api: QName AI WHOIS REST API
+auth_style:
+  scheme: api-key
+  header: x-api-key
+  note: Admin-approved key (qname_ prefix); see authentication/qname-authentication.yml.
+base_url: https://qname.ai
+api_root: /api
+versioning:
+  api: >-
+    Unversioned URL paths (/api/whois/..., /api/domain-traffic). The product itself
+    is semver-versioned (see changelog/qname-changelog.yml); the HTTP surface carries
+    no version segment or version header.
+content_type:
+  request: application/json (batch POST body)
+  response: application/json
+error_envelope:
+  shape: >-
+    JSON object. Success carries { result, data } (single) or { results: [...] }
+    (batch); traffic carries { engagements, globalRank, countryRank }. Domain-state
+    and failure responses carry a machine code field and, on failure, an error
+    string: { code, error }.
+  format: proprietary
+  rfc9457: false
+  codes:
+    - SUCCESS
+    - DOMAIN_NOT_REGISTERED
+    - DOMAIN_RESERVED
+  see: errors/qname-problem-types.yml
+pagination:
+  style: none
+  note: >-
+    No paginated collections. Batch WHOIS takes a domains[] array in the request
+    body and returns a parallel results[] array; there are no page/cursor params.
+idempotency:
+  coverage: na
+  note: >-
+    The published surface is read-only (WHOIS/RDAP and traffic lookups only). There
+    is no mutating operation, so replay protection is not applicable — no
+    Idempotency-Key header is documented or sent by the client.
+reversibility:
+  status: na
+  note: >-
+    Read-only API. No write, create, purchase, or registration operation exists
+    (the CLI and skill explicitly exclude registrar purchase actions), so there is
+    nothing to reverse.
+dry_run_mode:
+  status: na
+  note: Read-only API; no state-changing calls to rehearse.
+rate_limit_signaling:
+  documented_headers: none
+  note: >-
+    Quotas (per-request domain quota + daily request quota) are enforced per key but
+    no X-RateLimit-* / RateLimit-* response headers or exhaustion status code are
+    documented. See rate-limits/qname-rate-limits.yml.
+request_id_tracing:
+  status: none-documented

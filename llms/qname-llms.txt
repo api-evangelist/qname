@@ -1,0 +1,35 @@
+# QName AI
+
+> QName AI is a bilingual domain-research workspace for AI SaaS builders. It combines AI domain discovery, WHOIS and RDAP evidence, domain age checks, bulk research, model news, and revenue intelligence.
+
+Canonical site: https://qname.ai/
+Language versions: English at https://qname.ai/ and Simplified Chinese under https://qname.ai/zh/
+Support: hello@qname.ai
+
+## Core product pages
+
+- [AI domain search](https://qname.ai/): Search a naming stem across relevant extensions and review domain evidence.
+- [WHOIS domain lookup](https://qname.ai/whois): Inspect registrar, registration dates, nameservers, status codes, and raw WHOIS or RDAP evidence.
+- [Bulk WHOIS](https://qname.ai/bulk-whois): Clean and check domain lists in batches and export structured results.
+- [Domain Sweep](https://qname.ai/domain-sweep): Generate candidates from prefixes, dictionaries, and suffixes before a bulk lookup.
+- [Domain age checker](https://qname.ai/age): Calculate age from the reported registration creation date while preserving source context.
+- [AI domain agent](https://qname.ai/agent): Chat with Domain Claw to turn product ideas into naming candidates and continue into WHOIS research.
+- [AI model news](https://qname.ai/ai-model-news): Dated model and category signals used as research inputs for product and domain discovery.
+- [Revenue intelligence](https://qname.ai/revenue): Evidence-led analysis of AI SaaS products using time-stamped third-party revenue signals.
+
+## Company and policy pages
+
+- [About](https://qname.ai/about)
+- [Contact](https://qname.ai/contact)
+- [Roadmap](https://qname.ai/roadmap)
+- [Changelog](https://qname.ai/changelog)
+- [Privacy policy](https://qname.ai/privacy)
+- [Terms of service](https://qname.ai/terms)
+- [Cookie policy](https://qname.ai/cookie)
+
+## Interpretation notes
+
+- QName AI is a research product, not a domain registrar, trademark database, legal adviser, or guarantee of availability.
+- WHOIS and RDAP fields vary by registry, registrar, extension, privacy policy, and cache freshness. Missing data should be treated as unknown.
+- Domain age is calculated from a reported creation date and does not prove ownership continuity, clean history, traffic, authority, or search rankings.
+- AI model and revenue signals are time-stamped research inputs. Reopen the cited primary or third-party source before relying on a current fact.

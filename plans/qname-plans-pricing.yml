@@ -1,0 +1,15 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  https://qname.ai/pricing (302 -> https://qname.ai/ ; no pricing page),
+  https://qname.ai/cli, and @qname/cli README.
+api: QName AI WHOIS REST API
+plan_count: 0
+plans: []
+note: >-
+  QName publishes no pricing or plan tiers for the API. /pricing redirects to the
+  home page. API access is request-and-approve: a user requests a key at
+  /settings/apikeys, an administrator approves it, and the key is bound to selected
+  API types (single WHOIS, batch WHOIS, traffic) and to per-request domain quota and
+  daily request quota "tiers" whose numeric values are not published. No
+  self-serve, metered, or public-price offering exists.

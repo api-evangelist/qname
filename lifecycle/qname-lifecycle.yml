@@ -1,0 +1,28 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  https://qname.ai/changelog, https://qname.ai/roadmap, @qname/cli source, and
+  live host probes.
+api: QName AI WHOIS REST API
+versioning:
+  api_scheme: unversioned-paths
+  product_scheme: semver
+  current_product_version: 2.0.0
+  note: >-
+    HTTP paths carry no version segment; the product is semver-versioned via the
+    public changelog.
+changelog: https://qname.ai/changelog
+roadmap: https://qname.ai/roadmap
+deprecation_policy:
+  documented: false
+  note: No deprecation policy, Sunset/Deprecation (RFC 8594) header usage, or deprecated-operation list is published.
+sla:
+  documented: false
+status_page:
+  found: false
+  note: No status/uptime page was found on qname.ai or a common status host.
+deprecated_operations: []
+note: >-
+  No StatusPage or Deprecation pointer is emitted — neither surface was found. The
+  API is young (first public release 2026-05-18) and the client is actively
+  maintained (@qname/cli 0.1.4, 2026-06-03).

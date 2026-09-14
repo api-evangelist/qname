@@ -1,0 +1,36 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  @qname/cli source (bin/qname-cli.mjs, README.md), the published Agent Skill,
+  and https://qname.ai/cli. No OpenAPI securitySchemes exist (no published spec);
+  the auth profile is read from the official first-party client and docs.
+api: QName AI WHOIS REST API
+summary: >-
+  Single-scheme API-key authentication. Every request carries an admin-approved
+  API key in the x-api-key HTTP header. Access is request-and-approve: a user
+  requests a key at /settings/apikeys, selects the API types (scopes) and quota
+  tiers they need, and an administrator approves it before it works.
+security_schemes:
+  - type: apiKey
+    name: x-api-key
+    in: header
+    key_prefix: qname_
+    description: >-
+      Approved API key issued from QName.AI account settings. Sent as the
+      x-api-key request header on every call.
+    request_url: https://qname.ai/settings/apikeys
+    approval: admin-approved
+    gated: true
+scopes:
+  - id: domain.query.whois.single
+    description: Single-domain WHOIS/RDAP lookup (GET /api/whois/{domain}).
+  - id: domain.query.whois.batch
+    description: Batch WHOIS/RDAP lookup (POST /api/whois/batch).
+  - id: domain.traffic.lookup
+    description: Domain traffic evidence (GET /api/domain-traffic).
+notes: >-
+  Scopes above are QName "API types" attached to a key at approval time, not OAuth
+  scopes — there is no OAuth/OIDC flow. Keys are also constrained by a per-request
+  domain quota and a daily request quota chosen at approval. An unauthenticated or
+  bot request to the API host returns 403 (Cloudflare Turnstile: TURNSTILE_REQUIRED);
+  a bad key returns 401.

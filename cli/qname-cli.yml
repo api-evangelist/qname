@@ -1,0 +1,66 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  @qname/cli npm package v0.1.4 (bin/qname-cli.mjs source, README.md) and
+  https://qname.ai/cli.
+name: qname-cli
+api: QName AI WHOIS REST API
+package: '@qname/cli'
+binary: qname-cli
+official: true
+homepage: https://qname.ai
+repository: https://github.com/QNameAI/qname-cli
+install:
+  - method: npm
+    command: npm install -g @qname/cli
+output: >-
+  Defaults to JSON so humans and agents can parse results without screen scraping;
+  --format text gives a short human-readable status, --pretty pretty-prints JSON.
+environment:
+  - name: QNAME_API_KEY
+    description: Approved API key issued from QName.AI settings (qname_ prefix).
+  - name: QNAME_BASE_URL
+    description: API base URL, default https://qname.ai
+  - name: QNAME_CLI_CONFIG
+    description: Config path, default ~/.qname/config.json
+config:
+  path: ~/.qname/config.json
+  mode: '0600'
+  fields: [baseUrl, apiKey]
+commands:
+  - name: init
+    summary: Store the approved API key and base URL in local config.
+    example: qname-cli init --api-key <approved-key>
+  - name: whois
+    summary: >-
+      Single or batch WHOIS/domain lookup. One domain calls GET /api/whois/{domain};
+      multiple domains call POST /api/whois/batch. Reports registered/available/reserved.
+    backs: ['GET /api/whois/{domain}', 'POST /api/whois/batch']
+    example: qname-cli whois qname.ai example.com --pretty
+  - name: traffic
+    summary: >-
+      Domain traffic evidence (visits, global rank, country rank) via
+      GET /api/domain-traffic?domain={domain}. Requires the domain.traffic.lookup scope.
+    backs: [GET /api/domain-traffic]
+    example: qname-cli traffic qname.ai --pretty
+  - name: config
+    summary: Get/set local config (config get | config set | config path).
+    example: qname-cli config set --api-key <key>
+  - name: doctor
+    summary: Verify config path, base URL and API key; --check-api runs a live WHOIS probe.
+    example: qname-cli doctor --check-api
+  - name: request-key
+    summary: Print the API-key request URL (/settings/apikeys) and the available scopes.
+    example: qname-cli request-key
+  - name: docs
+    summary: Print pointers to bundled docs and the request-key URL.
+  - name: skill
+    summary: Print (or --path) the bundled Agent Skill markdown.
+    example: qname-cli skill --path
+  - name: version
+    summary: Print the CLI version.
+  - name: help
+    summary: Print usage.
+note: >-
+  Exit code 3 on HTTP 401 (auth failure), 1 on other errors. The CLI treats a
+  404 with code DOMAIN_NOT_REGISTERED as a normal "available" result, not an error.

@@ -1,0 +1,33 @@
+generated: '2026-09-14'
+method: derived
+source: >-
+  Candidate derived from the QName REST operations exposed by the official @qname/cli.
+  No first-party MCP server was found published (docs, npm, GitHub org). An
+  /api/mcp route exists on the host but returns 403 TURNSTILE_REQUIRED and could
+  not be verified via tools/list, so it is NOT recorded as a reachable server.
+api: QName AI WHOIS REST API
+status: candidate
+deployment:
+  mode: none
+  auth: api-key
+  verified: derived
+  note: >-
+    No hosted (remote) MCP endpoint and no local-stdio MCP package is published by
+    QName. This is a derived candidate tool list only. Probed https://qname.ai/api/mcp
+    returned HTTP 403 (Cloudflare Turnstile: TURNSTILE_REQUIRED) and
+    https://qname.ai/mcp returned an HTML page, neither confirming a JSON-RPC MCP
+    server. The agent-native surface QName actually ships is the @qname/cli Agent
+    Skill (see skills/), not an MCP server.
+tools:
+  - name: whois_lookup
+    description: Single-domain WHOIS/RDAP lookup; reports registered/available/reserved.
+    backs: GET /api/whois/{domain}
+    scope: domain.query.whois.single
+  - name: whois_batch
+    description: Batch WHOIS/RDAP lookup for a list of domains.
+    backs: POST /api/whois/batch
+    scope: domain.query.whois.batch
+  - name: domain_traffic
+    description: Domain traffic evidence (visits, global rank, country rank).
+    backs: GET /api/domain-traffic
+    scope: domain.traffic.lookup

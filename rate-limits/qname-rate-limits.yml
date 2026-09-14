@@ -1,0 +1,16 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  @qname/cli README + published Agent Skill (skills/qname-cli.md), https://qname.ai/cli.
+api: QName AI WHOIS REST API
+limit_count: 0
+limits: []
+headers: []
+note: >-
+  QName documents two quota dimensions in prose but publishes no numeric values and
+  no rate-limit response headers: (1) a per-request domain quota that caps how many
+  domains a single whois/batch call may contain, and (2) a daily request quota. Both
+  are set per key at approval time and are not disclosed publicly. No X-RateLimit-* /
+  RateLimit-* headers, Retry-After, or documented exhaustion status code were found
+  in the docs or the client. An honest zero: the mechanism exists but is undocumented
+  numerically.
