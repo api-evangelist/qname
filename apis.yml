@@ -16,7 +16,7 @@ tags:
   - batch-lookup
   - CLI
   - Agent Tooling
-  - AgentSkill
+  - Agent Skills
   - llms-txt
   - Developer Tools
   - Domain Intelligence
@@ -48,7 +48,7 @@ apis:
       - batch-lookup
       - CLI
       - Agent Tooling
-      - AgentSkill
+      - Agent Skills
       - llms-txt
       - Developer Tools
       - Domain Intelligence
