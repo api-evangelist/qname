@@ -10,7 +10,7 @@ modified: '2026-09-14'
 specificationVersion: '0.21'
 tags:
   - WHOIS
-  - rdap
+  - RDAP
   - domain-research
   - Domain Search
   - batch-lookup
@@ -42,7 +42,7 @@ apis:
     baseURL: https://qname.ai
     tags:
       - WHOIS
-      - rdap
+      - RDAP
       - domain-research
       - Domain Search
       - batch-lookup
