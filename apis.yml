@@ -39,7 +39,6 @@ apis:
       and GET /api/domain-traffic (traffic). Requires an admin-approved API key (qname_ prefix) and enforces per-request
       and daily quotas.
     humanURL: https://qname.ai/cli
-    baseURL: https://qname.ai
     tags:
       - WHOIS
       - RDAP
